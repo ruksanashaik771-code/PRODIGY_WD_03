@@ -1,0 +1,64 @@
+:root {
+    --cyan: #00f2fe;
+    --pink: #ff0080;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    background: #030712; color: white; height: 100vh; margin: 0;
+    display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif;
+}
+
+.overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+    display: flex; justify-content: center; align-items: center; z-index: 100;
+}
+
+.hidden { display: none !important; }
+
+.glass-card {
+    background: var(--glass); backdrop-filter: blur(15px);
+    padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);
+    text-align: center; width: 350px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.radiant-text {
+    /* 1. Define your gradient background */
+    background: linear-gradient(45deg, var(--cyan), var(--pink));
+
+    /* 2. Standard property (Removes the 'error' in your editor) */
+    background-clip: text;
+
+    /* 3. Webkit property (Required for the effect to work in Chrome/Safari/Edge) */
+    -webkit-background-clip: text;
+
+    /* 4. Makes the font color transparent so the gradient shows through */
+    -webkit-text-fill-color: transparent;
+    
+    /* 5. Fallback color for very old browsers */
+    color: var(--cyan);
+}
+
+
+.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
+
+.cell {
+    height: 100px; background: rgba(255,255,255,0.02); border-radius: 12px;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 3rem; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+
+/* FIX: Specific colors for X and O */
+.cell.x-mark { color: var(--cyan); text-shadow: 0 0 15px var(--cyan); }
+.cell.o-mark { color: var(--pink); text-shadow: 0 0 15px var(--pink); }
+
+.glow-btn {
+    border: none; padding: 12px; border-radius: 8px; font-weight: bold;
+    cursor: pointer; width: 45%; margin: 5px;
+}
+.glow-btn.cyan { background: var(--cyan); box-shadow: 0 0 15px var(--cyan); }
+.glow-btn.pink { background: var(--pink); box-shadow: 0 0 15px var(--pink); }
+
+.stats { display: flex; justify-content: space-between; align-items: center; }
+.score-box { padding: 10px; border-radius: 8px; background: rgba(0,0,0,0.3); flex: 1; }
+.x-glow { border-bottom: 3px solid var(--cyan); margin-right: 5px; }
+.o-glow { border-bottom: 3px solid var(--pink); margin-left: 5px; }
