@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="setup-overlay" class="overlay">
+        <div class="glass-card">
+            <h2 class="radiant-text">Game Setup</h2>
+            <input type="text" id="p1Input" placeholder="Player X Name">
+            <input type="text" id="p2Input" placeholder="Player O Name">
+            <div class="mode-btns">
+                <button class="glow-btn cyan" onclick="initGame('pvp')">2 Players</button>
+                <button class="glow-btn pink" onclick="initGame('ai')">VS AI</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="result-overlay" class="overlay hidden">
+        <div class="glass-card result-box">
+            <h1 id="winner-msg" class="radiant-text">Winner!</h1>
+            <div class="result-btns">
+                <button class="glow-btn cyan" onclick="resetMatch()">Rematch</button>
+                <button class="glow-btn pink" onclick="location.reload()">Change Mode</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card main-game">
+        <div class="stats">
+            <div class="score-box x-glow"><span id="nameX">X</span>: <span id="scoreX">0</span></div>
+            <div class="timer">⏳ <span id="timerText">00</span>s</div>
+            <div class="score-box o-glow"><span id="nameO">O</span>: <span id="scoreO">0</span></div>
+        </div>
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <p id="status">Wait for setup...</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
